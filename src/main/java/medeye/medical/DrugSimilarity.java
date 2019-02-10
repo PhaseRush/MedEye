@@ -16,7 +16,7 @@ public class DrugSimilarity {
      * @param commonName input commonName
      * @return List of Pairs<String, Integer>, such that the String is the name of the similar drug and the Integer is the similarity score
      */
-    public static List<Pair<String, Integer>> getSimilar(String commonName) {
+    public static List<Pair<String, Double>> getSimilar(String commonName) {
         int rxcui = DrugUtil.getRxcuiFromCommon(commonName);
 
         Map<Integer, Integer> numHits = drugVals(getClassIds(rxcui));
@@ -25,11 +25,16 @@ public class DrugSimilarity {
         numHits = Utility.sortMap(numHits, false);
 
         int perfectScore = numHits.get(rxcui); // needed for lambda
-        return numHits.entrySet().stream()
-                .filter(e -> e.getValue() < perfectScore) // filter out perfect scores because it is probably the drug itself
-                .limit(10) // dont flood with low score matches
+        Set<Map.Entry<Integer, Integer>> entries =
+                numHits.entrySet().stream()
+                        .filter(e -> e.getValue() < perfectScore) // filter out perfect scores because it is probably the drug itself
+                        .collect(Collectors.toSet());
+
+        int categorySize = numHits.get(rxcui);
+        return entries.stream()
                 .filter(e -> e.getValue() > 7) // arbitrary thing, might change
-                .map(e -> new Pair<>(DrugUtil.getCommonFromRxcui(e.getKey()), e.getValue()))
+                .limit(10) // dont flood with low score matches
+                .map(e -> new Pair<>(DrugUtil.getCommonFromRxcui(e.getKey()), (double)e.getValue()/categorySize))
                 .collect(Collectors.toList());
     }
 

@@ -12,6 +12,11 @@ import java.util.stream.Collectors;
 
 public class DrugUtil {
 
+    /**
+     * Get the Rxcui from a drug's common name
+     * @param commonName
+     * @return rxcui of drug
+     */
     public static int getRxcuiFromCommon(String commonName) {
         String url = "https://rxnav.nlm.nih.gov/REST/approximateTerm?term=" + commonName;
         String xml = Utility.getStringFromUrl(url);
@@ -20,7 +25,7 @@ public class DrugUtil {
         DrugSimilarity.Encapsulate container = Utility.gson.fromJson(fromXML.toString(), DrugSimilarity.Encapsulate.class);
         return container.rxnormdata.approximateGroup.candidate[0].rxcui;
     }
-
+    // opposite as above
     public static String getCommonFromRxcui(int rxcui) {
         String json = Utility.getStringFromUrl("https://rxnav.nlm.nih.gov/REST/rxcui/"+ rxcui +"/allProperties.json?prop=all");
         CommonWrapper wrapper = Utility.gson.fromJson(json, CommonWrapper.class);
@@ -47,7 +52,8 @@ public class DrugUtil {
                 .sorted((o1, o2) -> {
                     if (o1.getUnitPrice() == o2.getUnitPrice()) return 0;
                     return (o1.getUnitPrice() > o2.getUnitPrice() ? 1 : -1);
-                }).collect(Collectors.toList());
+                }).limit(8) // change this later
+                .collect(Collectors.toList());
     }
 
     /**
