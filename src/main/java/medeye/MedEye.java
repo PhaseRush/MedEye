@@ -3,6 +3,8 @@ package medeye;
 import medeye.imaging.ImageUtil;
 import medeye.medical.DrugSimilarity;
 import medeye.medical.DrugUtil;
+import medeye.wrapper.ActiveSideEffectWrapper;
+import medeye.wrapper.WrapperUtil;
 
 import java.io.IOException;
 
@@ -28,14 +30,14 @@ public class MedEye {
         DrugUtil.processDrugs(DRUG_DATABASE, targetDrugName)
                 .forEach(drug -> System.out.println(drug.getName() + "\n$" + drug.getUnitPrice() + " / " + drug.getUnit()));
 
+        // Active ingredients and side effects
+        ActiveSideEffectWrapper activeSideEffectWrapper = WrapperUtil.getActiveSideEffects(targetDrugName);
+
         Utility.padding(3, "Similar Drugs");
         // Outputs top 10 similar DRUG_DATABASE (that isn't itself)
         DrugSimilarity.getSimilar(targetDrugName)
                 .forEach(p -> System.out.println("Name: " + Utility.properCapital(p.getKey()) + "\tScore: " + p.getValue()));
 
         Utility.padding(3, "Ingredients");
-        // Outputs unique active ingredients
-        DrugUtil.getIngredients(DrugUtil.getRxcuiFromCommon(targetDrugName))
-                .forEach(System.out::println);
     }
 }

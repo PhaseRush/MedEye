@@ -34,7 +34,9 @@ public class DrugSimilarity {
         return entries.stream()
                 .filter(e -> e.getValue() > 7) // arbitrary thing, might change
                 .limit(10) // dont flood with low score matches
-                .map(e -> new Pair<>(DrugUtil.getCommonFromRxcui(e.getKey()), (double)e.getValue()/categorySize))
+                .map(e -> new Pair<>(
+                        DrugUtil.getCommonFromRxcui(e.getKey()),
+                        (double)Math.round((double)10000*e.getValue()/categorySize)/10000))
                 .collect(Collectors.toList());
     }
 

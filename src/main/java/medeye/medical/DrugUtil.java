@@ -68,7 +68,7 @@ public class DrugUtil {
 
         return Arrays.stream(ingredientContainer.rxclassDrugInfoList.rxclassDrugInfo)
                 .filter(container -> container.rxclassMinConceptItem.classType.equals("CHEM"))
-                .map(con -> con.rxclassMinConceptItem.className)
+                .map(container -> container.rxclassMinConceptItem.className)
                 .collect(Collectors.toSet());
     }
     // same as above but can accept common name

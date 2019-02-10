@@ -14,21 +14,6 @@ public class Utility {
     public static Gson gson = new Gson();
 
     /**
-     * Sort a map by value. Can specify increasing or decreasing
-     */
-    public static <K, V extends Comparable<? super V>> Map<K, V> sortMap(Map<K, V> map, boolean smallestToLargest) {
-        List<Map.Entry<K, V>> entryList = new ArrayList<>(map.entrySet());
-        entryList.sort(Map.Entry.comparingByValue());
-        if (!smallestToLargest) Collections.reverse(entryList);
-
-        Map<K, V> result = new LinkedHashMap<>();
-
-        entryList.forEach(e -> result.put(e.getKey(), e.getValue()));
-
-        return result;
-    }
-
-    /**
      * Given String url, fetch the String on page
      * @param url target URL
      * @return String contained on that page
@@ -43,6 +28,21 @@ public class Utility {
             e.printStackTrace();
             return "Error in Utility#getStringFromUrl";
         }
+    }
+
+    /**
+     * Sort a map by value. Can specify increasing or decreasing
+     */
+    public static <K, V extends Comparable<? super V>> Map<K, V> sortMap(Map<K, V> map, boolean smallestToLargest) {
+        List<Map.Entry<K, V>> entryList = new ArrayList<>(map.entrySet());
+        entryList.sort(Map.Entry.comparingByValue());
+        if (!smallestToLargest) Collections.reverse(entryList);
+
+        Map<K, V> result = new LinkedHashMap<>();
+
+        entryList.forEach(e -> result.put(e.getKey(), e.getValue()));
+
+        return result;
     }
 
     /**
