@@ -1,19 +1,29 @@
 package medeye.wrapper;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ActiveSideEffectWrapper {
-    private Map<Set<String>, List<String>> map;
+    private Map<Set<String>, ArrayList<String>> map;
+    private Set<String> ingredients;
+    private ArrayList<String> sideEffects;
 
-    public ActiveSideEffectWrapper(Set<String> ingredients, List<String> sideEffects) {
+    public ActiveSideEffectWrapper(Set<String> ingredients, ArrayList<String> sideEffects) {
         map = new HashMap<>();
         map.put(ingredients, sideEffects);
+        this.ingredients = ingredients;
+        this.sideEffects = sideEffects;
     }
 
-    public Map<Set<String>, List<String>> getMap() {
+
+    public Set<String> getIngredients() {
+        return ingredients;
+    }
+
+    public ArrayList<String> getSideEffects() {
+        return sideEffects;
+    }
+
+    public Map<Set<String>, ArrayList<String>> getMap() {
         return map;
     }
 }

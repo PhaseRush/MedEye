@@ -19,17 +19,15 @@ public class MainFrame extends JFrame{
         //Create Swing Component
         Dimension d = new Dimension();
 
-        JTextArea textArea = new JTextArea();
-        textArea.setFont(new Font("Arial", 0, 36));
-        textArea.setColumns(1);
-        textArea.setVisible(true);
-        textArea.setAutoscrolls(true);
-        textArea.setEditable(false);
+        JPanel dArea = new JPanel();
+        dArea.setFont(new Font("Arial", 0, 36));
+        dArea.setVisible(true);
+        dArea.setAutoscrolls(false);
 
-        JScrollPane scrollPane = new JScrollPane(textArea);
+        JScrollPane scrollPane = new JScrollPane(dArea);
         scrollPane.setPreferredSize(new Dimension(500,300));
-        textArea.setAlignmentX(0);
-        textArea.setAlignmentY(0);
+        dArea.setAlignmentX(0);
+        dArea.setAlignmentY(0);
 
         JTabbedPane tabbedPane = new JTabbedPane();
         d.setSize(500,500);

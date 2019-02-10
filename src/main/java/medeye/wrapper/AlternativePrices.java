@@ -11,7 +11,7 @@ import java.util.List;
 import static medeye.MedEye.DRUG_DATABASE;
 
 public class AlternativePrices {
-    List<AlternativePriceObj> list;
+    public List<AlternativePriceObj> list;
 
     public AlternativePrices(String targetDrugName) {
         list = new ArrayList<>();

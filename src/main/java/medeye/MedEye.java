@@ -1,5 +1,6 @@
 package medeye;
 
+import medeye.GUI.MainFrame;
 import medeye.imaging.ImageUtil;
 import medeye.medical.DrugSimilarity;
 import medeye.medical.DrugUtil;
@@ -7,6 +8,8 @@ import medeye.wrapper.ActiveSideEffectWrapper;
 import medeye.wrapper.AlternativePrices;
 import medeye.wrapper.WrapperUtil;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 public class MedEye {
@@ -17,6 +20,28 @@ public class MedEye {
     // const for base image directory
     private static final String BASE_IMAGE_DIR = "MedEye_Images/";
 
+
+    // public shitfest
+    public static AlternativePrices alternativePrices;
+    public static ActiveSideEffectWrapper activeSideEffectWrapper;
+
+//    public static void main(String[] args) {
+//        initializer();
+//    }
+    public static void initializer(){
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                JFrame frame = new MainFrame("MedEye");
+                Dimension d = new Dimension(500,800);
+                frame.setSize(d);
+                frame.setMaximumSize(d);
+                frame.setMinimumSize(d);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        });
+    }
     public static void main(String[] args) throws IOException {
         // Sets path to the image file to annotate
         String fileName = BASE_IMAGE_DIR + "nap.png";
@@ -32,10 +57,10 @@ public class MedEye {
                 .forEach(drug -> System.out.println(drug.getName() + "\n$" + drug.getUnitPrice() + " / " + drug.getUnit()));
 
         // Active ingredients and side effects (works)
-        ActiveSideEffectWrapper activeSideEffectWrapper = WrapperUtil.getActiveSideEffects(targetDrugName);
+        activeSideEffectWrapper = WrapperUtil.getActiveSideEffects(targetDrugName);
 
         // 3 column Name : Alternative : Similarity
-        AlternativePrices alternativePrices = new AlternativePrices(targetDrugName);
+        alternativePrices = new AlternativePrices(targetDrugName);
 
         Utility.padding(3, "Similar Drugs");
         // Outputs top 10 similar DRUG_DATABASE (that isn't itself)
@@ -45,5 +70,7 @@ public class MedEye {
         Utility.padding(3, "Ingredients");
         DrugUtil.getIngredients(DrugUtil.getRxcuiFromCommon(targetDrugName))
                 .forEach(System.out::println);
+
+        initializer();
     }
 }

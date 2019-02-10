@@ -4,6 +4,9 @@ import com.google.cloud.vision.v1.*;
 import com.google.protobuf.ByteString;
 import medeye.Utility;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -93,6 +96,20 @@ public class ImageUtil {
         }
         //System.out.println("area: " + -1 *area/2);
         return -1*area/2;
+    }
+
+
+    public static BufferedImage loadImageFromPath(String path) {
+        BufferedImage buffImg = null;
+
+        try {
+            buffImg = ImageIO.read(new File(path));
+        } catch (IOException e) {
+            System.out.println("Error loading image from path: " + path);
+            e.printStackTrace();
+        }
+
+        return buffImg;
     }
 
     // wrapper class for 3-field drug object

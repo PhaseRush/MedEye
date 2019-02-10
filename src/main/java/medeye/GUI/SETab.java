@@ -1,7 +1,11 @@
 package medeye.GUI;
 
+import medeye.MedEye;
+import medeye.wrapper.ActiveSideEffectWrapper;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class SETab extends JScrollPane{
     private SETable table;
@@ -12,15 +16,23 @@ public class SETab extends JScrollPane{
         setPreferredSize(size);
         setBorder(BorderFactory.createTitledBorder("Alternatives"));
 
-        table = new SETable(1,2);
-        table.removeEditor();
-        table.setName("Active Ingredients");
-        table.setBounds(0,0,500,700);
-        table.setShowGrid(true);
-        table.setGridColor(new Color(0));
-        table.setValueAt("Name",0,0);
-        table.setValueAt("Known Side Effects", 0, 1);
+        ActiveSideEffectWrapper activeSideEffectWrapper = MedEye.activeSideEffectWrapper;
+        //table.setValueAt("Known Side Effects", 0, 1);
+        JTextArea SEs = new JTextArea("Side Effects:\n");
+        SEs.setSize(new Dimension(500,700));
 
-        add(table);
+        ArrayList<String> sideEffects = activeSideEffectWrapper.getSideEffects();
+        StringBuilder sb = new StringBuilder("Ingredients:\n");
+        for (String s: activeSideEffectWrapper.getIngredients()) {
+            sb.append(s).append("\n");
+        }
+        for (int j = 0; j < activeSideEffectWrapper.getSideEffects().size(); j++) {
+            String s = sideEffects.get(j);
+            SEs.append(s + "\n");
+        }
+        SEs.append("\n");
+        SEs.append(sb.toString());
+        //setViewportView(table);
+        setViewportView(SEs);
     }
 }

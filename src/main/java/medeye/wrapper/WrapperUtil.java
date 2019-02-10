@@ -21,7 +21,7 @@ public class WrapperUtil {
         String json = Utility.getStringFromUrl(url);
         SideEffectWrapper wrapper = Utility.gson.fromJson(json, SideEffectWrapper.class);
 
-        List<String> sideEffects = Arrays.stream(wrapper.getResults()[0].getPatient().getReaction()).map(SideEffectWrapper.Reaction::getReactionmeddrapt).collect(Collectors.toList());
+        ArrayList<String> sideEffects = Arrays.stream(wrapper.getResults()[0].getPatient().getReaction()).map(SideEffectWrapper.Reaction::getReactionmeddrapt).collect(Collectors.toCollection(ArrayList::new));
 
         Set<String> ingredients = DrugUtil.getIngredients(DrugUtil.getRxcuiFromCommon(targetDrugName));
 
@@ -29,7 +29,7 @@ public class WrapperUtil {
     }
 
     private static ActiveSideEffectWrapper extraCase(String targetDrugName) {
-        List<String> sideEffects = new ArrayList<>();
+        ArrayList<String> sideEffects = new ArrayList<>();
         Set<String> ingredients = DrugUtil.getIngredients(DrugUtil.getRxcuiFromCommon(targetDrugName));
         if (targetDrugName.contains("LYR")) {
             sideEffects.addAll(Arrays.asList("Blurred Vision", "Drowsiness", "Loss of Balance", "Constipation", "Tremors"));
