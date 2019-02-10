@@ -5,7 +5,6 @@ import org.json.JSONObject;
 import org.json.XML;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -29,10 +28,13 @@ public class DrugSimilarity {
 
 
     /**
-     * Returns an arrayList of HashSets with class IDs that the drug passed by rxcui is in. The entry at 0 in the list is all
-     * diseases treated by the specific drug. The entry at 1 in the list is all diseases prevented by the specific drug. The
-     * entry at 2 is all active in ingredients in the specific drug. The entry at position 3 is the mechanism(s) of action of
-     * the specific drug.
+     * Returns an arrayList of HashSets with class IDs that the drug passed by rxcui is in.
+     *
+     * The entry at 0 is all diseases treated by the specific drug.
+     * The entry at 1 is all diseases prevented by the specific drug.
+     * The entry at 2 is all active in ingredients in the specific drug.
+     * The entry at 3 is the mechanism(s) of action of the specific drug.
+     *
      * @param rxcui is the rxcui (drug identifier) of the drug.
      * @return
      */
