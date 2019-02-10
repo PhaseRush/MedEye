@@ -53,7 +53,7 @@ public class ImageUtil {
                                         if (o1Size == o2Size) return 0;
                                         return (o1Size > o2Size ? -1 : +1); // want DECREASING order
                                     })
-                                    .filter(entity -> entity.getDescription().length() < 100) // eliminate extra large boxes
+                                    .filter(entity -> entity.getDescription().length() < 10) // eliminate extra large boxes
                                     .findFirst()
                                     .get()
                                     .getDescription()
@@ -65,17 +65,14 @@ public class ImageUtil {
     }
 
     private static int calcArea(List<Vertex> verticies) {
-        // print out verticies
-        //verticies.forEach(v -> System.out.println(v.getX() + " : " + v.getY()));
-
-        int area = 0;         // Accumulates area in the loop
-        int j = verticies.size()-1;  // The last vertex is the 'previous' one to the first
+        int area = 0; // area accumulator
+        int j = verticies.size()-1;  // init j
 
         for (int i = 0; i < verticies.size(); i++) {
             Vertex vi = verticies.get(i);
             Vertex vj = verticies.get(j);
             area += (vj.getX() + vi.getX()) * (vj.getY()- vi.getY());
-            j = i;  //j is previous vertex to i
+            j = i;  //update j
         }
         //System.out.println("area: " + -1 *area/2);
         return -1*area/2;
