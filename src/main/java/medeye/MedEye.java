@@ -15,7 +15,7 @@ public class MedEye {
         DrugInfo[] drugs = Utility.gson.fromJson(Utility.getStringFromUrl(DRUG_NAME_DATABASE_URL), DrugInfo[].class);
 
         // The path to the image file to annotate
-        String fileName = "MedEye_Images/nap.png";
+        String fileName = "MedEye_Images/ibu2.png";
 
         // run Optical Character Recognition (OCR) on the image file to determine the target drug name
         String targetDrugName = Utility.omitLastNewline(ImageUtil.runOCR(fileName)).toUpperCase();

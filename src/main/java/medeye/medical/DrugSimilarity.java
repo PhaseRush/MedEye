@@ -29,7 +29,7 @@ public class DrugSimilarity {
 
         int perfectScore = numHits.get(rxcui); // needed for lambda
         numHits.entrySet().stream()
-                .filter(e -> e.getValue() != perfectScore) // filter out perfect scores because it is probably the drug itself
+                .filter(e -> e.getValue() < perfectScore) // filter out perfect scores because it is probably the drug itself
                 .limit(10)
                 .map(e -> new Pair<>(DrugUtil.getCommonFromRxcui(e.getKey()), e.getValue()))
                 .forEach(p -> System.out.println("Name: " + Utility.properCapital(p.getKey()) + "\tScore: " + p.getValue()));

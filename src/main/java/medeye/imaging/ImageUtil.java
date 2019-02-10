@@ -66,7 +66,7 @@ public class ImageUtil {
                                         if (o1Size == o2Size) return 0;
                                         return (o1Size > o2Size ? -1 : +1); // want DECREASING order
                                     })
-                                    .filter(entity -> entity.getDescription().split(" ").length < 10) // eliminate extra large boxes by limiting word count
+                                    .filter(entity -> entity.getDescription().split("(\\s|\n)").length < 10) // eliminate extra large boxes by limiting word count
                                     .findFirst()
                                     .get()
                                     .getDescription()
