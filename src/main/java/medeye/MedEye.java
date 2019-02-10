@@ -4,6 +4,7 @@ import medeye.imaging.DrugInfo;
 import medeye.imaging.ImageUtil;
 import medeye.imaging.ImageUtil.DrugTriplet;
 import medeye.medical.DrugSimilarity;
+import medeye.medical.DrugUtil;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,7 +16,7 @@ public class MedEye {
         DrugInfo[] drugs = Utility.gson.fromJson(Utility.getStringFromUrl(DRUG_NAME_DATABASE_URL), DrugInfo[].class);
 
         // The path to the image file to annotate
-        String fileName = "MedEye_Images/ibu2.png";
+        String fileName = "MedEye_Images/ibu4.png";
 
         // run Optical Character Recognition (OCR) on the image file to determine the target drug name
         String targetDrugName = Utility.omitLastNewline(ImageUtil.runOCR(fileName)).toUpperCase();
@@ -27,8 +28,8 @@ public class MedEye {
         processedDrugs.forEach(drug -> System.out.println(drug.getName() + "\n$" + drug.getUnitPrice() + " / " + drug.getUnit()));
 
         // Playing around with Drug Similarity
-        DrugSimilarity.getSimilar(targetDrugName);
+        DrugSimilarity.getSimilar(targetDrugName).forEach(p -> System.out.println("Name: " + Utility.properCapital(p.getKey()) + "\tScore: " + p.getValue()));;
 
-
+        DrugUtil.getIngredients(DrugUtil.getRxcuiFromCommon(targetDrugName)).forEach(System.out::println);
     }
 }
