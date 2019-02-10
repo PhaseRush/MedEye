@@ -10,6 +10,12 @@ import java.util.stream.Collectors;
 
 public class DrugSimilarity {
 
+    /**
+     * Given a commonName, return top x drugs which are similar enough (sorted, decreasing) in terms of similar ingredients, cures/preventions of diseases, etc
+     *
+     * @param commonName input commonName
+     * @return List of Pairs<String, Integer>, such that the String is the name of the similar drug and the Integer is the similarity score
+     */
     public static List<Pair<String, Integer>> getSimilar(String commonName) {
         int rxcui = DrugUtil.getRxcuiFromCommon(commonName);
 
@@ -21,7 +27,8 @@ public class DrugSimilarity {
         int perfectScore = numHits.get(rxcui); // needed for lambda
         return numHits.entrySet().stream()
                 .filter(e -> e.getValue() < perfectScore) // filter out perfect scores because it is probably the drug itself
-                .limit(10)
+                .limit(10) // dont flood with low score matches
+                .filter(e -> e.getValue() > 7) // arbitrary thing, might change
                 .map(e -> new Pair<>(DrugUtil.getCommonFromRxcui(e.getKey()), e.getValue()))
                 .collect(Collectors.toList());
     }

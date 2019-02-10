@@ -78,16 +78,16 @@ public class ImageUtil {
      * Given a list of vertices, calculate the enclosed area.
      * Assumes no overlapping. Works with convex, but not guaranteed for concave (bounding box should never be concave)
      *
-     * @param verticies Collection of vertices which enclose a shape
+     * @param vertices Collection of vertices which enclose a shape
      * @return area of enclosed shape
      */
-    private static int calcArea(List<Vertex> verticies) {
+    private static int calcArea(List<Vertex> vertices) {
         int area = 0; // area accumulator
-        int j = verticies.size()-1;  // init j
+        int j = vertices.size()-1;  // init j
 
-        for (int i = 0; i < verticies.size(); i++) {
-            Vertex vi = verticies.get(i);
-            Vertex vj = verticies.get(j);
+        for (int i = 0; i < vertices.size(); i++) {
+            Vertex vi = vertices.get(i);
+            Vertex vj = vertices.get(j);
             area += (vj.getX() + vi.getX()) * (vj.getY()- vi.getY());
             j = i;  //update j
         }
