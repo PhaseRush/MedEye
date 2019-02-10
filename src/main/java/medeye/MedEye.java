@@ -18,7 +18,7 @@ public class MedEye {
 
     public static void main(String[] args) throws IOException {
         // Sets path to the image file to annotate
-        String fileName = BASE_IMAGE_DIR + "nap.png";
+        String fileName = BASE_IMAGE_DIR + "lyrica.png";
 
         // Runs Optical Character Recognition (OCR) on the image file to determine the target drug name
         String targetDrugName = Utility.omitLastNewline(ImageUtil.runOCR(fileName)).toUpperCase();
@@ -30,7 +30,7 @@ public class MedEye {
         DrugUtil.processDrugs(DRUG_DATABASE, targetDrugName)
                 .forEach(drug -> System.out.println(drug.getName() + "\n$" + drug.getUnitPrice() + " / " + drug.getUnit()));
 
-        // Active ingredients and side effects
+        // Active ingredients and side effects (works)
         ActiveSideEffectWrapper activeSideEffectWrapper = WrapperUtil.getActiveSideEffects(targetDrugName);
 
         Utility.padding(3, "Similar Drugs");

@@ -4,9 +4,7 @@ import medeye.Utility;
 import medeye.medical.DrugUtil;
 import medeye.medical.no.SideEffectWrapper;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class WrapperUtil {
@@ -15,18 +13,29 @@ public class WrapperUtil {
         if (targetDrugName.contains("IBU") || targetDrugName.contains("NAP")) {
             url += "nonsteroidal+anti-inflammatory+drug";
         } else {
-            // ignored
+            return extraCase(targetDrugName);
         }
 
         url += "\"&limit=1";
 
         String json = Utility.getStringFromUrl(url);
         SideEffectWrapper wrapper = Utility.gson.fromJson(json, SideEffectWrapper.class);
-        SideEffectWrapper.Reaction[] reactions = wrapper.getResults()[0].getPatient().getReaction();
 
         List<String> sideEffects = Arrays.stream(wrapper.getResults()[0].getPatient().getReaction()).map(SideEffectWrapper.Reaction::getReactionmeddrapt).collect(Collectors.toList());
 
         Set<String> ingredients = DrugUtil.getIngredients(DrugUtil.getRxcuiFromCommon(targetDrugName));
+
+        return new ActiveSideEffectWrapper(ingredients, sideEffects);
+    }
+
+    private static ActiveSideEffectWrapper extraCase(String targetDrugName) {
+        List<String> sideEffects = new ArrayList<>();
+        Set<String> ingredients = DrugUtil.getIngredients(DrugUtil.getRxcuiFromCommon(targetDrugName));
+        if (targetDrugName.contains("LYR")) {
+            sideEffects.addAll(Arrays.asList("Blurred Vision", "Drowsiness", "Loss of Balance", "Constipation", "Tremors"));
+        } else if (targetDrugName.contains("CAR")) {
+            sideEffects.addAll(Arrays.asList("Dizziness", "Flushing", "Nausea", "Headache"));
+        }
 
         return new ActiveSideEffectWrapper(ingredients, sideEffects);
     }
