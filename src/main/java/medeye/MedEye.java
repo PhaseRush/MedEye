@@ -43,5 +43,7 @@ public class MedEye {
                 .forEach(p -> System.out.println("Name: " + Utility.properCapital(p.getKey()) + "\tScore: " + p.getValue()));
 
         Utility.padding(3, "Ingredients");
+        DrugUtil.getIngredients(DrugUtil.getRxcuiFromCommon(targetDrugName))
+                .forEach(System.out::println);
     }
 }

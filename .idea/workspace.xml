@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9996e892-8c3d-49de-8b9f-f7608bb37b57" name="Default" comment="">
+    <list default="true" id="4054ccc0-66a1-4438-9cba-1395dc4f16c0" name="Default Changelist" comment="Push to sync">
+      <change beforePath="$PROJECT_DIR$/.idea/MedEye.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MedEye.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/medeye/MedEye.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/medeye/MedEye.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/medeye/MedEye.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/MedEye.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/medeye/wrapper/AlternativePrices$AlternativePriceObj.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/wrapper/AlternativePrices$AlternativePriceObj.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/medeye/wrapper/AlternativePrices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/wrapper/AlternativePrices.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,16 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/main.iml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/medeye/MedEye.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="73" lean-forward="true" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
+            <state relative-caret-position="493">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,19 +40,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/wrapper/ActiveSideEffectWrapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/wrapper/AlternativePrices.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="-388">
+              <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#552#553#0" expanded="true" />
+                <element signature="e#587#588#0" expanded="true" />
+                <element signature="e#623#624#0" expanded="true" />
+                <element signature="e#659#660#0" expanded="true" />
+                <element signature="e#707#708#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/AltTab.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/wrapper/WrapperUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+            <state relative-caret-position="260">
+              <caret line="25" column="102" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="102" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,19 +70,53 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/AltTable.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/medical/no/SideEffectWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+            <state relative-caret-position="69">
+              <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+              <folding>
+                <element signature="e#131#132#0" expanded="true" />
+                <element signature="e#161#162#0" expanded="true" />
+                <element signature="e#179#180#0" expanded="true" />
+                <element signature="e#217#218#0" expanded="true" />
+                <element signature="e#248#249#0" expanded="true" />
+                <element signature="e#287#288#0" expanded="true" />
+                <element signature="e#292#293#0" expanded="true" />
+                <element signature="e#339#340#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/MainFrame.java">
+        <entry file="file://$PROJECT_DIR$/MedEye_Images/nap.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MedEye_Images/lyrica.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/medical/DrugUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="152">
+              <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4728#4729#0" expanded="true" />
+                <element signature="e#4773#4774#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_134.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,31 +125,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/SETab.java">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_135.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/SETable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+            <state relative-caret-position="138">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,10 +137,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/MainPane.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/medical/DrugSimilarity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="46">
+              <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,12 +189,15 @@
     <option name="width" value="1314" />
     <option name="height" value="966" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -179,6 +209,11 @@
             <path>
               <item name="MedEye" type="b2602c69:ProjectViewProjectNode" />
               <item name="MedEye" type="462c0819:PsiDirectoryNode" />
+              <item name="MedEye_Images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MedEye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MedEye" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -201,15 +236,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="medeye" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MedEye" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MedEye" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="medeye" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MedEye" type="b2602c69:ProjectViewProjectNode" />
@@ -229,15 +255,42 @@
               <item name="medeye" type="462c0819:PsiDirectoryNode" />
               <item name="medical" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="MedEye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MedEye" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="medeye" type="462c0819:PsiDirectoryNode" />
+              <item name="medical" type="462c0819:PsiDirectoryNode" />
+              <item name="no" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MedEye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MedEye" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="medeye" type="462c0819:PsiDirectoryNode" />
+              <item name="wrapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MedEye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+            <path>
+              <item name="MedEye" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549829755806" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549829977121" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -256,9 +309,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.MedEye">
-    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-    </configuration>
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -300,7 +350,6 @@
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -310,6 +359,15 @@
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -334,11 +392,14 @@
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="61000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="366" y="23" width="1314" height="966" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22955975" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16311301" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -348,14 +409,14 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49954832" weight="0.32902467" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.32857144" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.4984456" visible="true" weight="0.32902467" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49946696" weight="0.4923077" />
       <window_info anchor="bottom" id="Problems" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015544" side_tool="true" weight="0.32902467" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" weight="0.32857144" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49948186" weight="0.32902467" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -408,6 +469,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Push to sync" />
+    <option name="LAST_COMMIT_MESSAGE" value="Push to sync" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -430,8 +495,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/medeye/medical/DrugSimilarity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="46">
+          <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -451,51 +519,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/SETab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/AlternativesTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/SETable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/AlternativesTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/SETab.java" />
+    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/AlternativesTable.java" />
+    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/SETable.java" />
+    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/AlternativesTab.java" />
     <entry file="file://$PROJECT_DIR$/MedEye.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/MainPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/MainFrame.java" />
+    <entry file="file://$PROJECT_DIR$/../GUI/src/MedEyeGUI/GUI/MainPane.java" />
     <entry file="file://$PROJECT_DIR$/src/main/main.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -528,8 +560,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/medeye/MedEye.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="73" lean-forward="true" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
+        <state relative-caret-position="493">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
