@@ -13,23 +13,25 @@ public class MedEye {
     private static final String DRUG_NAME_DATABASE_URL = "https://data.medicaid.gov/resource/tau9-gfwr.json";
 
     public static void main(String[] args) throws IOException {
+        // Initializes the drug vocabulary database
         DrugInfo[] drugs = Utility.gson.fromJson(Utility.getStringFromUrl(DRUG_NAME_DATABASE_URL), DrugInfo[].class);
 
-        // The path to the image file to annotate
+        // Sets path to the image file to annotate
         String fileName = "MedEye_Images/ibu4.png";
 
-        // run Optical Character Recognition (OCR) on the image file to determine the target drug name
+        // Runs Optical Character Recognition (OCR) on the image file to determine the target drug name
         String targetDrugName = Utility.omitLastNewline(ImageUtil.runOCR(fileName)).toUpperCase();
 
         System.out.println("TARGET: " + targetDrugName); // debug testing
 
-        // process our drugs by applying filters, and sorting matching drugs by unit price
+        // Processes our drugs by applying filters, and sorting matching drugs by unit price
         List<DrugTriplet> processedDrugs = ImageUtil.processDrugs(drugs, targetDrugName);
         processedDrugs.forEach(drug -> System.out.println(drug.getName() + "\n$" + drug.getUnitPrice() + " / " + drug.getUnit()));
 
         // Playing around with Drug Similarity
         DrugSimilarity.getSimilar(targetDrugName).forEach(p -> System.out.println("Name: " + Utility.properCapital(p.getKey()) + "\tScore: " + p.getValue()));;
 
+        // Outputs ingredients
         DrugUtil.getIngredients(DrugUtil.getRxcuiFromCommon(targetDrugName)).forEach(System.out::println);
     }
 }

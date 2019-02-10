@@ -45,8 +45,13 @@ public class DrugUtil {
                 .map(con -> con.rxclassMinConceptItem.className)
                 .collect(Collectors.toSet());
     }
+    // same as above but can accept common name
+    public static Set<String> getIngredients(String commonName) {
+        return getIngredients(getRxcuiFromCommon(commonName));
+    }
 
 
+    // class wrapper
     private class CommonWrapper {
         private PropConceptGroup propConceptGroup;
 
