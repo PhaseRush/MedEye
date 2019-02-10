@@ -10,7 +10,6 @@ import java.util.List;
 public class MedEye {
     private static final String DRUG_NAME_DATABASE_URL = "https://data.medicaid.gov/resource/tau9-gfwr.json";
 
-    // https://cloud.google.com/docs/authentication/production#auth-cloud-implicit-java
     public static void main(String[] args) throws IOException {
         DrugInfo[] drugs = Utility.gson.fromJson(Utility.getStringFromUrl(DRUG_NAME_DATABASE_URL), DrugInfo[].class);
 
@@ -21,13 +20,9 @@ public class MedEye {
         String targetDrugName = Utility.omitLastNewline(ImageUtil.runOCR(fileName)).toUpperCase();
 
         System.out.println("TARGET: " + targetDrugName); // debug testing
-        //System.out.println(targetDrugName.endsWith("\n"));
 
         // process our drugs by applying filters, and sorting matching drugs by unit price
         List<DrugTriplet> processedDrugs = ImageUtil.processDrugs(drugs, targetDrugName);
-        if (processedDrugs.isEmpty()) { // if drug name not in database, use fallback option
-            //StringBuilder sb = DrugUtil.fallback(targetDrugName);
-        }
         processedDrugs.forEach(drug -> System.out.println(drug.getName() + "\n$" + drug.getUnitPrice() + " / " + drug.getUnit()));
 
     }

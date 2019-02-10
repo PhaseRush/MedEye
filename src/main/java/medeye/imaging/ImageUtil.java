@@ -10,11 +10,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ImageUtil {
 
+    // https://cloud.google.com/docs/authentication/production#auth-cloud-implicit-java
     public static String runOCR(String fileName) throws IOException {
         try (ImageAnnotatorClient vision = ImageAnnotatorClient.create()) {
 
@@ -23,31 +25,25 @@ public class ImageUtil {
             byte[] data = Files.readAllBytes(path);
             ByteString imgBytes = ByteString.copyFrom(data);
 
-            // Builds the image annotation request
-            List<AnnotateImageRequest> requests = new ArrayList<>();
-            Image img = Image.newBuilder().setContent(imgBytes).build();
-            Feature feat = Feature.newBuilder().setType(Feature.Type.TEXT_DETECTION).build();
-            AnnotateImageRequest request = AnnotateImageRequest.newBuilder()
-                    .addFeatures(feat)
-                    .setImage(img)
-                    .build();
-            requests.add(request);
+            // Builds the image annotation requests
+            List<AnnotateImageRequest> requests = new ArrayList<>(Collections.singletonList(
+                    AnnotateImageRequest.newBuilder()
+                            .addFeatures(Feature.newBuilder().setType(Feature.Type.TEXT_DETECTION).build())
+                            .setImage(Image.newBuilder().setContent(imgBytes).build())
+                            .build()
+            ));
 
             // Performs label detection on the image file
             BatchAnnotateImagesResponse response = vision.batchAnnotateImages(requests);
             List<AnnotateImageResponse> responses = response.getResponsesList();
 
             for (AnnotateImageResponse res : responses) {
-                if (res.hasError()) {
+                if (res.hasError()) { // if error, just continue
                     System.out.printf("Error: %s\n", res.getError().getMessage());
-                    return null;
                 } else {
                     return Utility.omitLastNewline(
                             res.getTextAnnotationsList().stream()
                                     .sorted((o1, o2) -> {
-//                                        System.out.println("o1 desc: " + o1.getDescription());
-//                                        System.out.println("o2 desc: " + o2.getDescription());
-
                                         int o1Size = calcArea(o1.getBoundingPoly().getVerticesList());
                                         int o2Size = calcArea(o2.getBoundingPoly().getVerticesList());
                                         if (o1Size == o2Size) return 0;
