@@ -33,6 +33,7 @@ public class SETab extends JScrollPane{
         SEs.append("\n");
         SEs.append(sb.toString());
         //setViewportView(table);
+        SEs.setEditable(false);
         setViewportView(SEs);
     }
 }

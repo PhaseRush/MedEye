@@ -18,16 +18,13 @@ public class MedEye {
     public static final DrugUtil.DrugInfo[] DRUG_DATABASE = Utility.gson.fromJson(Utility.getStringFromUrl(DRUG_NAME_DATABASE_URL), DrugUtil.DrugInfo[].class);
 
     // const for base image directory
-    private static final String BASE_IMAGE_DIR = "MedEye_Images/";
-
+    public static final String BASE_IMAGE_DIR = "MedEye_Images/ibu.png";
+    public static String updatedTarget;
 
     // public shitfest
     public static AlternativePrices alternativePrices;
     public static ActiveSideEffectWrapper activeSideEffectWrapper;
 
-//    public static void main(String[] args) {
-//        initializer();
-//    }
     public static void initializer(){
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -44,12 +41,13 @@ public class MedEye {
     }
     public static void main(String[] args) throws IOException {
         // Sets path to the image file to annotate
-        String fileName = BASE_IMAGE_DIR + "nap.png";
+        String fileName = BASE_IMAGE_DIR;
 
         // Runs Optical Character Recognition (OCR) on the image file to determine the target drug name
         String targetDrugName = Utility.omitLastNewline(ImageUtil.runOCR(fileName)).toUpperCase();
 
         System.out.println("TARGET: " + targetDrugName); // debug testing
+        updatedTarget = targetDrugName;
 
         Utility.padding(3, "Processing Drugs");
         // Processes DRUG_DATABASE by applying filters, then sorting by increasing unit price

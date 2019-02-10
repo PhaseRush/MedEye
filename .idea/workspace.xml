@@ -3,23 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4054ccc0-66a1-4438-9cba-1395dc4f16c0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/medeye/GUI/AltTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/medeye/GUI/AltTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/medeye/GUI/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/medeye/GUI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/medeye/GUI/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/medeye/GUI/SETab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/medeye/GUI/SETab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/medeye/MedEye.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/medeye/MedEye.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/medeye/imaging/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/medeye/imaging/ImageUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/medeye/wrapper/ActiveSideEffectWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/medeye/wrapper/ActiveSideEffectWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/medeye/wrapper/AlternativePrices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/medeye/wrapper/AlternativePrices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/medeye/wrapper/WrapperUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/medeye/wrapper/WrapperUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/medeye/GUI/AltTab.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/GUI/AltTab.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/medeye/GUI/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/medeye/GUI/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/medeye/GUI/SETab.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/GUI/SETab.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/medeye/GUI/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/GUI/MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/medeye/MedEye.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/MedEye.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/medeye/wrapper/ActiveSideEffectWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/wrapper/ActiveSideEffectWrapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/medeye/wrapper/AlternativePrices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/wrapper/AlternativePrices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/medeye/wrapper/WrapperUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/wrapper/WrapperUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/medeye/imaging/ImageUtil$DrugTriplet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/imaging/ImageUtil$DrugTriplet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/medeye/imaging/ImageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/medeye/imaging/ImageUtil.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,10 +30,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/medeye/MedEye.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="65" column="42" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
+            <state relative-caret-position="-116">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#initializer#0;class#MedEye#0" />
               </folding>
             </state>
           </provider>
@@ -64,7 +55,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/medeye/wrapper/ActiveSideEffectWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
+            <state relative-caret-position="366">
               <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="27" />
               <folding>
                 <element signature="e#419#420#0" expanded="true" />
@@ -77,10 +68,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/wrapper/WrapperUtil.java">
+        <entry file="file://$PROJECT_DIR$/MedEye_Images/nap.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state relative-caret-position="108">
+              <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,21 +85,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/MainFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/medeye/imaging/ImageUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
+            <state relative-caret-position="1677">
               <caret line="104" column="13" lean-forward="true" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -122,23 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/wrapper/AlternativePrices.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/SETab.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="26" column="38" lean-forward="true" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+            <state relative-caret-position="596">
+              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,10 +119,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Vector.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/medeye/medical/DrugUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="191">
-              <caret line="476" selection-start-line="476" selection-end-line="476" />
+              <caret line="47" column="88" selection-start-line="47" selection-start-column="88" selection-end-line="47" selection-end-column="88" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4728#4729#0" expanded="true" />
+                <element signature="e#4773#4774#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -177,12 +154,12 @@
         <option value="$PROJECT_DIR$/src/main/java/medeye/GUI/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/medeye/wrapper/AlternativePrices.java" />
         <option value="$PROJECT_DIR$/src/main/java/medeye/GUI/AltTab.java" />
-        <option value="$PROJECT_DIR$/src/main/java/medeye/MedEye.java" />
         <option value="$PROJECT_DIR$/src/main/java/medeye/wrapper/WrapperUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/medeye/wrapper/ActiveSideEffectWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/medeye/GUI/SETab.java" />
-        <option value="$PROJECT_DIR$/src/main/java/medeye/GUI/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/medeye/imaging/ImageUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/medeye/MedEye.java" />
+        <option value="$PROJECT_DIR$/src/main/java/medeye/GUI/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/medeye/GUI/SETab.java" />
       </list>
     </option>
   </component>
@@ -310,7 +287,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549834361858" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549835484949" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -417,17 +394,24 @@
       <option name="project" value="LOCAL" />
       <updated>1549829986300</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Working GUI with buff im from path">
+      <created>1549834379503</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1549834379503</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4391000" />
+    <option name="totallyTimeSpent" value="5487000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16311301" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16311301" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -437,14 +421,14 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.61353946" visible="true" weight="0.32857144" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6130064" visible="true" weight="0.12747253" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.782516" weight="0.24615385" />
       <window_info anchor="bottom" id="Problems" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.38646054" side_tool="true" visible="true" weight="0.32857144" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.38699362" side_tool="true" visible="true" weight="0.12747253" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49948186" weight="0.32902467" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49946696" weight="0.32967034" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -500,7 +484,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Push to sync" />
     <MESSAGE value="Push to sync 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Push to sync 1" />
+    <MESSAGE value="Working GUI with buff im from path" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working GUI with buff im from path" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -594,9 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MedEye_Images/nap.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -609,25 +591,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MedEye_Images/lyrica.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/AltTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/medical/DrugUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4728#4729#0" expanded="true" />
-            <element signature="e#4773#4774#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -690,29 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/wrapper/ActiveSideEffectWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="27" />
-          <folding>
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#449#450#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/SETab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="26" column="38" lean-forward="true" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/awt/Component.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -724,33 +664,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/MedEye.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/medical/DrugUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="65" column="42" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
+        <state relative-caret-position="191">
+          <caret line="47" column="88" selection-start-line="47" selection-start-column="88" selection-end-line="47" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4728#4729#0" expanded="true" />
+            <element signature="e#4773#4774#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/AltTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/imaging/ImageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1677">
+          <caret line="104" column="13" lean-forward="true" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#DrugTriplet#0;class#ImageUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MedEye_Images/nap.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/wrapper/ActiveSideEffectWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="27" />
+          <folding>
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#449#450#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/MedEye.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-116">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initializer#0;class#MedEye#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        <state relative-caret-position="108">
+          <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/imaging/ImageUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/medeye/GUI/SETab.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="104" column="13" lean-forward="true" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+        <state relative-caret-position="596">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#DrugTriplet#0;class#ImageUtil#0" />
           </folding>
         </state>
       </provider>
