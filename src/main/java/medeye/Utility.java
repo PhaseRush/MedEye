@@ -40,4 +40,9 @@ public class Utility {
             return "error - url status request - getstringfromurl";
         }
     }
+
+    public static String omitLastNewline(String str) {
+        if (str.charAt(str.length()-1) != '\n') return str;
+        return str.substring(0, str.length()-1);
+    }
 }

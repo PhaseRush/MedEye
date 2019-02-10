@@ -17,17 +17,18 @@ public class MedEye {
         DrugInfo[] drugs = Utility.gson.fromJson(Utility.getStringFromUrl(DRUG_NAME_DATABASE_URL), DrugInfo[].class);
 
         // The path to the image file to annotate
-        String fileName = "MedEye_Images/aspirin.png";
+        String fileName = "MedEye_Images/lis.png";
 
         // run Optical Character Recognition (OCR) on the image file to determine the target drug name
-        String targetDrugName = runOCR(fileName);
-        String parsedTarget = targetDrugName.substring(0, targetDrugName.length()-1); // delete last character because it is newline '\n'
+        String targetDrugName = Utility.omitLastNewline(runOCR(fileName)).toUpperCase();
 
         System.out.println("TARGET: " + targetDrugName); // debug testing
+        System.out.println(targetDrugName.endsWith("\n"));
 
-        List<DrugTriplet> processedDrugs = processDrugs(drugs, parsedTarget); // process our drugs by applying filters
+        // process our drugs by applying filters, and sorting matching drugs by unit price
+        List<DrugTriplet> processedDrugs = processDrugs(drugs, targetDrugName);
 
-        processedDrugs.forEach(pd -> System.out.println(pd.getName() + "\n$" + pd.getUnitPrice() + " / " + pd.getUnit()));
+        processedDrugs.forEach(drug -> System.out.println(drug.getName() + "\n$" + drug.getUnitPrice() + " / " + drug.getUnit()));
 
     }
 }

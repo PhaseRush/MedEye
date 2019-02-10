@@ -2,6 +2,7 @@ package medeye.imaging;
 
 import com.google.cloud.vision.v1.*;
 import com.google.protobuf.ByteString;
+import medeye.Utility;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -41,12 +42,43 @@ public class ImageUtil {
                     System.out.printf("Error: %s\n", res.getError().getMessage());
                     return null;
                 } else {
-                    String nameWithNewline = res.getFullTextAnnotation().getText();
-                    return nameWithNewline.substring(1, nameWithNewline.length()-1);
+                    return Utility.omitLastNewline(
+                            res.getTextAnnotationsList().stream()
+                                    .sorted((o1, o2) -> {
+                                        System.out.println("o1 desc: " + o1.getDescription());
+                                        System.out.println("o2 desc: " + o2.getDescription());
+
+                                        int o1Size = calcArea(o1.getBoundingPoly().getVerticesList());
+                                        int o2Size = calcArea(o2.getBoundingPoly().getVerticesList());
+                                        if (o1Size == o2Size) return 0;
+                                        return (o1Size > o2Size ? -1 : +1); // want DECREASING order
+                                    })
+                                    .filter(entity -> entity.getDescription().length() < 100) // eliminate extra large boxes
+                                    .findFirst()
+                                    .get()
+                                    .getDescription()
+                    );
                 }
             }
         }
         return null;
+    }
+
+    private static int calcArea(List<Vertex> verticies) {
+        // print out verticies
+        //verticies.forEach(v -> System.out.println(v.getX() + " : " + v.getY()));
+
+        int area = 0;         // Accumulates area in the loop
+        int j = verticies.size()-1;  // The last vertex is the 'previous' one to the first
+
+        for (int i = 0; i < verticies.size(); i++) {
+            Vertex vi = verticies.get(i);
+            Vertex vj = verticies.get(j);
+            area += (vj.getX() + vi.getX()) * (vj.getY()- vi.getY());
+            j = i;  //j is previous vertex to i
+        }
+        System.out.println("area: " + -1 *area/2);
+        return -1*area/2;
     }
 
     public static List<DrugTriplet> processDrugs(DrugInfo[] drugs, String target) {
