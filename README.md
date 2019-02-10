@@ -51,6 +51,9 @@ Detailed information about clinical drugs in for precision medicine and EMR soft
 
 Mobile Text Recognition API: https://developers.google.com/vision/android/text-overview
 
+Website: https://aliu5454.github.io
+
+Other info:
 
 
 
