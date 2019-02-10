@@ -72,4 +72,9 @@ public class Utility {
         }
         return new String(charray);
     }
+
+    public static void padding(int lines, String message) {
+        for (int i = 1; i < lines; i++) System.out.println();
+        System.out.println("--------: " + message + " :--------");
+    }
 }

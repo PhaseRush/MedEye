@@ -23,14 +23,17 @@ public class MedEye {
 
         System.out.println("TARGET: " + targetDrugName); // debug testing
 
+        Utility.padding(3, "Processing Drugs");
         // Processes DRUG_DATABASE by applying filters, then sorting by increasing unit price
         DrugUtil.processDrugs(DRUG_DATABASE, targetDrugName)
                 .forEach(drug -> System.out.println(drug.getName() + "\n$" + drug.getUnitPrice() + " / " + drug.getUnit()));
 
+        Utility.padding(3, "Similar Drugs");
         // Outputs top 10 similar DRUG_DATABASE (that isn't itself)
         DrugSimilarity.getSimilar(targetDrugName)
-                .forEach(p -> System.out.println("Name: " + Utility.properCapital(p.getKey()) + "\tScore: " + p.getValue()));;
+                .forEach(p -> System.out.println("Name: " + Utility.properCapital(p.getKey()) + "\tScore: " + p.getValue()));
 
+        Utility.padding(3, "Ingredients");
         // Outputs unique active ingredients
         DrugUtil.getIngredients(DrugUtil.getRxcuiFromCommon(targetDrugName))
                 .forEach(System.out::println);
