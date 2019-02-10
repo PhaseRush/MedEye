@@ -1,24 +1,75 @@
 package medeye;
 
 import com.google.cloud.vision.v1.*;
+import com.google.gson.Gson;
 import com.google.protobuf.ByteString;
+import javafx.util.Pair;
+import medeye.imaging.DrugInfo;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MedEye {
 
+    private static OkHttpClient client = new OkHttpClient();
+    private static Gson gson = new Gson();
+
     public static void main(String[] args) throws IOException {
         // https://cloud.google.com/docs/authentication/production#auth-cloud-implicit-java
         // Instantiates a client
-        try (ImageAnnotatorClient vision = ImageAnnotatorClient.create()) {
 
-            // The path to the image file to annotate
-            String fileName = "MedEye_Images/test2small.png";
+
+        String json = getStringFromUrl("https://data.medicaid.gov/resource/tau9-gfwr.json");
+        DrugInfo[] drugs = gson.fromJson(json, DrugInfo[].class);
+
+        // The path to the image file to annotate
+        String fileName = "MedEye_Images/aspirin.png";
+        String targetDrugName = runOCR(fileName);
+        String parsedTarget = targetDrugName.substring(0, targetDrugName.length()-1);
+        System.out.println("TARGET: (ASPIRIN) " + targetDrugName);
+
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        //String targetDrugName = "ASPIRIN";
+
+
+
+        Arrays.stream(drugs)
+                .filter(d -> d.getNdc_description().contains(parsedTarget))
+                .map(d -> new Pair<>(d.getNdc_description(), Double.valueOf(d.getNadac_per_unit())))
+                .sorted((o1, o2) -> {
+                    if (o1.getValue().equals(o2.getValue())) return 0;
+                    return (o1.getValue() > o2.getValue() ? 1 : -1);
+                }).forEach(p ->
+                System.out.println(p.getKey() + " : " + p.getValue()));
+    }
+
+    public static String getStringFromUrl(String url) {
+        Request request = new Request.Builder()
+                .url(url)
+                .build();//Response response = client.newCall(request).execute()
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        } catch (IOException e) {
+            //kys
+            return "error - url status request - getstringfromurl";
+        }
+    }
+
+    private static String runOCR(String fileName) throws IOException {
+        try (ImageAnnotatorClient vision = ImageAnnotatorClient.create()) {
 
             // Reads the image file into memory
             Path path = Paths.get(fileName);
@@ -42,11 +93,13 @@ public class MedEye {
             for (AnnotateImageResponse res : responses) {
                 if (res.hasError()) {
                     System.out.printf("Error: %s\n", res.getError().getMessage());
-                    return;
+                    return null;
                 } else {
-                    System.out.println(res.getFullTextAnnotation().getText());
+                    //System.out.println(res.getFullTextAnnotation().getText());
+                    return res.getFullTextAnnotation().getText();
                 }
             }
         }
+        return null;
     }
 }
