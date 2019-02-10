@@ -1,13 +1,8 @@
 package medeye;
 
 import com.google.cloud.vision.v1.*;
-import com.google.gson.Gson;
 import com.google.protobuf.ByteString;
-import javafx.util.Pair;
 import medeye.imaging.DrugInfo;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,6 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MedEye {
 
@@ -32,26 +28,34 @@ public class MedEye {
         String fileName = "MedEye_Images/aspirin.png";
         String targetDrugName = runOCR(fileName);
         String parsedTarget = targetDrugName.substring(0, targetDrugName.length()-1);
-        System.out.println("TARGET: (ASPIRIN) " + targetDrugName);
+        System.out.println("TARGET: " + targetDrugName);
 
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        List<DrugTriplet> processedDrugs = processDrugs(drugs, parsedTarget);
 
-        //String targetDrugName = "ASPIRIN";
+        processedDrugs.forEach(pd -> System.out.println(pd.name + "\n$" + pd.unitPrice + " / " + pd.unit));
 
+    }
 
-
-        Arrays.stream(drugs)
-                .filter(d -> d.getNdc_description().contains(parsedTarget))
-                .map(d -> new Pair<>(d.getNdc_description(), Double.valueOf(d.getNadac_per_unit())))
+    private static List<DrugTriplet> processDrugs(DrugInfo[] drugs, String target) {
+        return Arrays.stream(drugs)
+                .filter(d -> d.getNdc_description().contains(target))
+                .map(d -> new DrugTriplet(d.getNdc_description(), Double.valueOf(d.getNadac_per_unit()), d.getPricing_unit()))
                 .sorted((o1, o2) -> {
-                    if (o1.getValue().equals(o2.getValue())) return 0;
-                    return (o1.getValue() > o2.getValue() ? 1 : -1);
-                }).forEach(p ->
-                System.out.println(p.getKey() + " : " + p.getValue()));
+                    if (o1.unitPrice == o2.unitPrice) return 0;
+                    return (o1.unitPrice > o2.unitPrice ? 1 : -1);
+                }).collect(Collectors.toList());
+    }
+
+    private static class DrugTriplet {
+        String name;
+        double unitPrice;
+        String unit;
+
+        public DrugTriplet(String name, double unitPrice, String unit){
+            this.name = name;
+            this.unitPrice = unitPrice;
+            this.unit = unit;
+        }
     }
 
     private static String runOCR(String fileName) throws IOException {
