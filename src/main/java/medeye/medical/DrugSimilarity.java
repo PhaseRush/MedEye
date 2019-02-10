@@ -10,12 +10,11 @@ import java.util.stream.Collectors;
 
 public class DrugSimilarity {
 
-
     public static List<Pair<String, Integer>> getSimilar(String commonName) {
         int rxcui = DrugUtil.getRxcuiFromCommon(commonName);
 
         Map<Integer, Integer> numHits = drugVals(getClassIds(rxcui));
-        System.out.println(numHits.get(rxcui));
+        // System.out.println(numHits.get(rxcui));
 
         numHits = Utility.sortMap(numHits, false);
 

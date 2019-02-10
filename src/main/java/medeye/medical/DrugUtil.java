@@ -1,10 +1,13 @@
 package medeye.medical;
 
 import medeye.Utility;
+import medeye.imaging.DrugInfo;
+import medeye.imaging.ImageUtil;
 import org.json.JSONObject;
 import org.json.XML;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -31,7 +34,25 @@ public class DrugUtil {
     }
 
     /**
-     * Given a rxcui, return all UNIQUE ingredients
+     * Processes drugs based on target drug name.
+     * Filters out drugs that do not contain keyword name, then sorts remaining based on price.
+     *
+     * @param drugs Array of all drugs in database
+     * @param target name of drug, treated as keyword for all drug names
+     * @return List of DrugTriplet (container w/ 3 fields) of sorted (increasing) drugs which match target name
+     */
+    public static List<ImageUtil.DrugTriplet> processDrugs(DrugInfo[] drugs, String target) {
+        return Arrays.stream(drugs)
+                .filter(d -> d.getNdc_description().contains(target))
+                .map(d -> new ImageUtil.DrugTriplet(d.getNdc_description(), Double.valueOf(d.getNadac_per_unit()), d.getPricing_unit()))
+                .sorted((o1, o2) -> {
+                    if (o1.getUnitPrice() == o2.getUnitPrice()) return 0;
+                    return (o1.getUnitPrice() > o2.getUnitPrice() ? 1 : -1);
+                }).collect(Collectors.toList());
+    }
+
+    /**
+     * Given a rxcui, return all UNIQUE active ingredients
      * @param rxcui input drug rxcui
      * @return Set of ingredients
      */
@@ -49,7 +70,6 @@ public class DrugUtil {
     public static Set<String> getIngredients(String commonName) {
         return getIngredients(getRxcuiFromCommon(commonName));
     }
-
 
     // class wrapper
     private class CommonWrapper {

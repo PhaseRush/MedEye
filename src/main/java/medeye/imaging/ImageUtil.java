@@ -9,10 +9,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Utility class for Image processing. Includes impl. for interacting with Google's Cloud platform.
@@ -20,8 +18,6 @@ import java.util.stream.Collectors;
 public class ImageUtil {
 
     /**
-     * Based off of https://cloud.google.com/docs/authentication/production#auth-cloud-implicit-java
-     *
      * Runs Optical Character Recognition (OCR) on a local image through Google's Cloud vision api
      * First reads image from path and stores it as a ByteString. Then builds a AnnotateImageRequest which is used to
      * obtain the responses from the API.
@@ -29,6 +25,7 @@ public class ImageUtil {
      * These responses are then sorted based on their bounding box, then filtered for text content.
      * The text in the largest box which MUST HAVE LESS THAN 10 (TEN) words is returned.
      *
+     * Based off of https://cloud.google.com/docs/authentication/production#auth-cloud-implicit-java
      * @param fileName (relative) filepath to target image
      * @return String of the drug name in the image.
      * @throws IOException filepath error
@@ -66,7 +63,7 @@ public class ImageUtil {
                                         if (o1Size == o2Size) return 0;
                                         return (o1Size > o2Size ? -1 : +1); // want DECREASING order
                                     })
-                                    .filter(entity -> entity.getDescription().split("(\\s|\n)").length < 10) // eliminate extra large boxes by limiting word count
+                                    .filter(entity -> entity.getDescription().split("\\W+").length < 10) // eliminate extra large boxes by limiting word count
                                     .findFirst()
                                     .get()
                                     .getDescription()
@@ -96,24 +93,6 @@ public class ImageUtil {
         }
         //System.out.println("area: " + -1 *area/2);
         return -1*area/2;
-    }
-
-    /**
-     * Processes drugs based on target drug name.
-     * Filters out drugs that do not contain keyword name, then sorts remaining based on price.
-     *
-     * @param drugs Array of all drugs in database
-     * @param target name of drug, treated as keyword for all drug names
-     * @return List of DrugTriplet (container w/ 3 fields) of sorted (increasing) drugs which match target name
-     */
-    public static List<DrugTriplet> processDrugs(DrugInfo[] drugs, String target) {
-        return Arrays.stream(drugs)
-                .filter(d -> d.getNdc_description().contains(target))
-                .map(d -> new DrugTriplet(d.getNdc_description(), Double.valueOf(d.getNadac_per_unit()), d.getPricing_unit()))
-                .sorted((o1, o2) -> {
-                    if (o1.unitPrice == o2.unitPrice) return 0;
-                    return (o1.unitPrice > o2.unitPrice ? 1 : -1);
-                }).collect(Collectors.toList());
     }
 
     // wrapper class for 3-field drug object
