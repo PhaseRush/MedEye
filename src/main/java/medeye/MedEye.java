@@ -19,16 +19,14 @@ import java.util.List;
 
 public class MedEye {
 
-    private static OkHttpClient client = new OkHttpClient();
-    private static Gson gson = new Gson();
 
     public static void main(String[] args) throws IOException {
         // https://cloud.google.com/docs/authentication/production#auth-cloud-implicit-java
         // Instantiates a client
 
 
-        String json = getStringFromUrl("https://data.medicaid.gov/resource/tau9-gfwr.json");
-        DrugInfo[] drugs = gson.fromJson(json, DrugInfo[].class);
+        String json = Utility.getStringFromUrl("https://data.medicaid.gov/resource/tau9-gfwr.json");
+        DrugInfo[] drugs = Utility.gson.fromJson(json, DrugInfo[].class);
 
         // The path to the image file to annotate
         String fileName = "MedEye_Images/aspirin.png";
@@ -54,18 +52,6 @@ public class MedEye {
                     return (o1.getValue() > o2.getValue() ? 1 : -1);
                 }).forEach(p ->
                 System.out.println(p.getKey() + " : " + p.getValue()));
-    }
-
-    public static String getStringFromUrl(String url) {
-        Request request = new Request.Builder()
-                .url(url)
-                .build();//Response response = client.newCall(request).execute()
-        try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
-        } catch (IOException e) {
-            //kys
-            return "error - url status request - getstringfromurl";
-        }
     }
 
     private static String runOCR(String fileName) throws IOException {
