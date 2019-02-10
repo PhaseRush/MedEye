@@ -45,8 +45,8 @@ public class ImageUtil {
                     return Utility.omitLastNewline(
                             res.getTextAnnotationsList().stream()
                                     .sorted((o1, o2) -> {
-                                        System.out.println("o1 desc: " + o1.getDescription());
-                                        System.out.println("o2 desc: " + o2.getDescription());
+//                                        System.out.println("o1 desc: " + o1.getDescription());
+//                                        System.out.println("o2 desc: " + o2.getDescription());
 
                                         int o1Size = calcArea(o1.getBoundingPoly().getVerticesList());
                                         int o2Size = calcArea(o2.getBoundingPoly().getVerticesList());
@@ -77,7 +77,7 @@ public class ImageUtil {
             area += (vj.getX() + vi.getX()) * (vj.getY()- vi.getY());
             j = i;  //j is previous vertex to i
         }
-        System.out.println("area: " + -1 *area/2);
+        //System.out.println("area: " + -1 *area/2);
         return -1*area/2;
     }
 

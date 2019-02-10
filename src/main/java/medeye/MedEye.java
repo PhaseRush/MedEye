@@ -23,7 +23,7 @@ public class MedEye {
         String targetDrugName = Utility.omitLastNewline(runOCR(fileName)).toUpperCase();
 
         System.out.println("TARGET: " + targetDrugName); // debug testing
-        System.out.println(targetDrugName.endsWith("\n"));
+        //System.out.println(targetDrugName.endsWith("\n"));
 
         // process our drugs by applying filters, and sorting matching drugs by unit price
         List<DrugTriplet> processedDrugs = processDrugs(drugs, targetDrugName);
