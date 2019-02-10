@@ -1,5 +1,6 @@
 package medeye.medical;
 
+import javafx.util.Pair;
 import medeye.Utility;
 import org.json.JSONObject;
 import org.json.XML;
@@ -7,6 +8,7 @@ import org.json.XML;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class DrugSimilarity {
 
@@ -19,9 +21,20 @@ public class DrugSimilarity {
         Encapsulate container = Utility.gson.fromJson(fromXML.toString(), Encapsulate.class);
         int rxcui = container.rxnormdata.approximateGroup.candidate[0].rxcui;
 
-        HashMap<Integer, Integer> numHits = drugVals(getClassIds(rxcui));
+        //List<HashSet<String>> temp = getClassIds(rxcui);
+        Map<Integer, Integer> numHits = drugVals(getClassIds(rxcui));
         System.out.println(numHits.get(rxcui));
 
+        numHits = Utility.sortMap(numHits, false);
+
+        int perfectScore = numHits.get(rxcui); // needed for lambda
+        numHits.entrySet().stream()
+                .filter(e -> e.getValue() != perfectScore) // filter out perfect scores because it is probably the drug itself
+                .limit(10)
+                .map(e -> new Pair<>(DrugUtil.getCommonFromRxcui(e.getKey()), e.getValue()))
+                .forEach(p -> System.out.println("Name: " + Utility.properCapital(p.getKey()) + "\tScore: " + p.getValue()));
+
+        // need to get back drug name from rxcui
 
         return null;
     }
@@ -65,7 +78,7 @@ public class DrugSimilarity {
         //parsing may prevent classes
         HashSet<String> tempList1 = new HashSet<>();
         Encapsulator contPrevent = Utility.gson.fromJson(strPrevent, Encapsulator.class);
-        rxdruginfo[] prevents = contPrevent.rxclassDrugInfoList.rxclassDrugInfo;
+        rxdruginfo[] prevents = contPrevent.rxclassDrugInfoList.rxclassDrugInfo; // lyrica, cartia fails
         for (int i = 0; i < prevents.length; i++) {
             tempList1.add(prevents[i].rxclassMinConceptItem.classId);
         }
@@ -95,11 +108,14 @@ public class DrugSimilarity {
     /**
      * Takes an arrayList of HashSets of drug classes (described in detail below) and returns a Map in which the keys are rxcui
      * keys and the values they map to are the number of classes they appear in in the HashSets in the ArrayList
-     * @param classes The entry at 0 in the list is all
-     *      * diseases treated by the specific drug. The entry at 1 in the list is all diseases prevented by the specific drug. The
-     *      * entry at 2 is all active in ingredients in the specific drug. The entry at position 3 is the mechanism(s) of action of
-     *      * the specific drug.
-     * @return
+     *
+     * @param classes
+     * The entry at 0 in the list is all diseases treated by the specific drug.
+     * The entry at 1 in the list is all diseases prevented by the specific drug.
+     * The entry at 2 in the list is all active in ingredients in the specific drug.
+     * The entry at 3 in the list is all mechanism(s) of action of the specific drug.
+     *
+     * @return Map < Drug id
      */
     public static HashMap<Integer, Integer> drugVals(ArrayList<HashSet<String>> classes) {
         HashMap<Integer, Integer> retmap = new HashMap<>();
@@ -180,7 +196,7 @@ public class DrugSimilarity {
         JSONObject fromXML = XML.toJSONObject(xml);
 
         //Taking data from URL
-        DGEncapsulator container = Utility.gson.fromJson(fromXML.toString(), DGEncapsulator.class);
+        DGEncapsulator container = Utility.gson.fromJson(fromXML.toString(), DGEncapsulator.class); // Lisinopril breaks
         drugMem[] outarr = container.rxclassdata.drugMemberGroup.drugMember;
 
         //Returning parsed data

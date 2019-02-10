@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 
 /**
  * Utility class for Image processing. Includes impl. for interacting with Google's Cloud platform.
- *
  */
 public class ImageUtil {
 
@@ -67,7 +66,7 @@ public class ImageUtil {
                                         if (o1Size == o2Size) return 0;
                                         return (o1Size > o2Size ? -1 : +1); // want DECREASING order
                                     })
-                                    .filter(entity -> entity.getDescription().length() < 10) // eliminate extra large boxes
+                                    .filter(entity -> entity.getDescription().split(" ").length < 10) // eliminate extra large boxes by limiting word count
                                     .findFirst()
                                     .get()
                                     .getDescription()

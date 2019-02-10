@@ -2,39 +2,46 @@ package medeye.medical;
 
 import medeye.Utility;
 
+import java.util.Arrays;
+
 public class DrugUtil {
 
+    public static String getCommonFromRxcui(int rxcui) {
+        String json = Utility.getStringFromUrl("https://rxnav.nlm.nih.gov/REST/rxcui/"+ rxcui +"/allProperties.json?prop=all");
+        CommonWrapper wrapper = Utility.gson.fromJson(json, CommonWrapper.class);
 
-    public static StringBuilder fallback(String targetDrugName) {
-        String url = "https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=" + targetDrugName + "&ef=STRENGTHS_AND_FORMS";
-        String json = Utility.getStringFromUrl(url);
-
-        Fallback obj = Utility.gson.fromJson(json, Fallback.class);
-
-        System.out.println(obj.STRENGTHS_AND_FORMS.length);
-
-        return null;
+        return Arrays.stream(wrapper.getPropConceptGroup().getPropConcept())
+                .filter(concept -> concept.getPropName().equals("RxNorm Name"))
+                .findAny()
+                .get()
+                .getPropValue();
     }
 
 
-    public class Fallback
-    {
-        private String[][] STRENGTHS_AND_FORMS;
+    private class CommonWrapper {
+        private PropConceptGroup propConceptGroup;
 
-        public String[][] getSTRENGTHS_AND_FORMS ()
-        {
-            return STRENGTHS_AND_FORMS;
+        public PropConceptGroup getPropConceptGroup() {
+            return propConceptGroup;
+        }
+    }
+    private class PropConceptGroup {
+        private PropConcept[] propConcept;
+
+        public PropConcept[] getPropConcept() {
+            return propConcept;
+        }
+    }
+    private class PropConcept {
+        private String propName;
+        private String propValue;
+
+        public String getPropName() {
+            return propName;
         }
 
-        public void setSTRENGTHS_AND_FORMS (String[][] STRENGTHS_AND_FORMS)
-        {
-            this.STRENGTHS_AND_FORMS = STRENGTHS_AND_FORMS;
-        }
-
-        @Override
-        public String toString()
-        {
-            return "ClassPojo [STRENGTHS_AND_FORMS = "+STRENGTHS_AND_FORMS+"]";
+        public String getPropValue() {
+            return propValue;
         }
     }
 }
