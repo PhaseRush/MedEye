@@ -4,6 +4,8 @@ import medeye.Utility;
 import org.json.JSONObject;
 import org.json.XML;
 
+import java.util.ArrayList;
+
 public class DrugSimilarity {
 
     public static Object getSimilar(String commonName) {
@@ -16,6 +18,16 @@ public class DrugSimilarity {
 
 
 
+
+        return null;
+    }
+
+    public static ArrayList<Integer> getClassIds(int rxcui){
+        String urlTreat = "https://rxnav.nlm.nih.gov/REST/rxclass/class/byRxcui.json?rxcui="+ rxcui + "&relaSource=MEDRT&relas=may_treat";
+        String urlIngredient = "https://rxnav.nlm.nih.gov/REST/rxclass/class/byRxcui.json?rxcui="+ rxcui + "&relaSource=MEDRT&relas=has_ingredient";
+        String urlMoA = "https://rxnav.nlm.nih.gov/REST/rxclass/class/byRxcui.json?rxcui="+ rxcui + "&relaSource=MEDRT&relas=has_moa";
+
+        // leo added this so code compiles
         return null;
     }
 
